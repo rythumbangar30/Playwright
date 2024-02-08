@@ -5,7 +5,7 @@ const { ShopJack1Page, ShopSizePage } = require('../pages/shopsite.jack1.page');
 const { ShopShipPage } = require('../pages/shopsite_shipping.page');
 const { ShopPaymentPage } = require('../pages/shopsite_payment_page');
 test('Shopsite',async({page})=>{
-    test.setTimeout(6*20000);
+    test.setTimeout(6*15000);
     var shophome = new ShopHomePage(page);
     await shophome.goto("https://magento.softwaretestingboard.com/");
     // await shophome.womensection();
@@ -18,7 +18,7 @@ test('Shopsite',async({page})=>{
     var shopjacket = new ShopJacketPage(page);
     // await shopjacket.adriennejacket(); 
 
-    await shopjacket.addJacketByName('Adrienne Tre kJacket');
+    await shopjacket.addJacketByName('Adrienne Trek Jacket');
 
     var shopsizepage = new ShopSizePage(page);
 
@@ -31,12 +31,12 @@ test('Shopsite',async({page})=>{
     await shopsizepage.waitScreen();
     await shopsizepage.cartIconBtn();
     const element = await page.locator('strong[class="product-item-name"]').innerHTML();
-    // const element = await page.getByText('Adrienne Trek Jacket').innerHTML();
+    
     await expect(element).toContain('Adrienne Trek Jacket');
     // await expect(page.getByText("Adrienne Trek Jacket").innerHTML()).toContain('Adrienne Trek Jacket');
     // await expect(page.locator('strong[class="product-item-name"]').innerText()).toContain('Adrienne Trek Jacket');
+    
     await shopsizepage.checkoutBtn();
-
 
     var shopshippage = new ShopShipPage(page);
 
@@ -53,7 +53,7 @@ test('Shopsite',async({page})=>{
 
     var shoppaymentpage = new ShopPaymentPage(page);
     await shoppaymentpage.checkAddress();
-    await expect(page.getByRole('checkbox',{name:"My billing and shipping address are the same"})).isChecked();
+    await expect(page.getByRole('checkbox',{name:"My billing and shipping address are the same"})).toBeChecked();
 
     await shoppaymentpage.submitBtn();
 
