@@ -25,8 +25,8 @@ test('Github Login',async({page})=>{
     await githubPage.loginButton();
     await githubPage.waitScreen();
 
-    const githubHomePage = new GitHubHomePage(page);
+    // const githubHomePage = new GitHubHomePage(page); //Only Run with an sms code
 
-    await githubHomePage.repoLink();
-    await githubHomePage.waitScreen();
+    // await githubHomePage.repoLink();
+    // await githubHomePage.waitScreen();
 })
