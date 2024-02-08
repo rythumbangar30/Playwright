@@ -6,7 +6,7 @@ exports.GitHubDevPage=class GitHubDevPage{
         this.loginTextBox = page.locator('input[id="login_field"]');
         this.passwordTextBox = page.locator("input[id='password']");
         this.signButton = page.getByRole('button',{name:'Sign in'});
-        this.wait = page.waitForTimeout(2000);
+        // this.wait = page.waitForTimeout(2000);
     }
     async goto(url){
         await this.page.goto(url);
@@ -24,6 +24,6 @@ exports.GitHubDevPage=class GitHubDevPage{
         await this.signButton.click();
     }
     async waitScreen(){
-        await this.wait;
+        await this.page.waitForTimeout(2000);
     }
 }
