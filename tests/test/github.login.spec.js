@@ -23,7 +23,7 @@ test('Github Login',async({page})=>{
     await githubPage.userDetail(username);
     await githubPage.userPassword(password);
     await githubPage.loginButton();
-    // await githubPage.waitScreen();
+    await githubPage.waitScreen();
 
     const githubHomePage = new GitHubHomePage(page);
 
