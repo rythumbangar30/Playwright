@@ -4,6 +4,7 @@
 module.exports={
   facebookbaseUrl:'https://www.facebook.com/',
   githubbaseUrl:'https://github.com/',
+  productstorebaseUrl:'https://www.demoblaze.com/index.html',
   username:"rythum.bangar@liseinfotech.com",
   gitpass:'Rythum30@',
   firstname:'Shri',

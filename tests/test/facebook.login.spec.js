@@ -4,7 +4,7 @@ const { FacebookDevPage } = require('../pages/facebook.login.page.js');
 
 test("Shyam Logining Facebook",async({page})=>{
     
-    const baseUrl =config.baseUrl;
+    const baseUrl =config.facebookbaseUrl;
     const firstname = config.firstname;
     const lastname = config.lastname;
     const email = config.email;
