@@ -1,6 +1,6 @@
 const{test,expect} = require('@playwright/test');
 const { DatePickPage } = require('../pages/date_picker.page');
-
+const config = require('../../config');
 test('Date Picker',async({page})=>{
     var datePicker = new DatePickPage(page);
     await datePicker.goto("https://demo.automationtesting.in/Datepicker.html");
