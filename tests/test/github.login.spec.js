@@ -4,10 +4,16 @@ const {GitHubDevPage} = require('../pages/github.login.page.js');
 const { GithubDashPage } = require('../pages/github.dash.page.js');
 const { GitHubHomePage } = require('../pages/github.home.page.js');
 
+let baseUrl,username,password;
+test.beforeAll(async(browser)=>{
+    baseUrl = config.githubbaseUrl;
+    username = config.username;
+    password = config.password;
+})
 test('Github Login',async({page})=>{
     var githubDash =new GithubDashPage (page);
-    const baseUrl = config.githubbaseUrl;
-    var username = config.username;
+    // const baseUrl = config.githubbaseUrl;
+    // var username = config.username;
     await githubDash.goto(baseUrl);
     // await githubDash.signUrl(username);
     // await githubDash.signupBtn(); 

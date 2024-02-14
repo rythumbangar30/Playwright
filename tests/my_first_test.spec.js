@@ -1,10 +1,10 @@
 import {test , expect} from '@playwright/test';
 import { link } from 'fs';
-
+// test.describe.configure({ mode:'parallel' });
 // test('Facebook Login Page',async({ page })=>{
 //     await page.goto("https://www.facebook.com/");
      
-//     await expect(page).toHaveTitle("Facebook – log in or sign up");
+//     await expect(page).toHaveTitle("Facebook - log in or sign up");
 
 //     await page.locator('input[id="email"]').fill("acbd@gmail.com");
 //     // await page.getByPlaceholder("Email address or phone number").fill("abc@gmail.com");
