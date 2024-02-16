@@ -35,9 +35,9 @@ test('Product Store ',async({page})=>{
     await producthome.cartBtn();         //Going To Cart
 
     await expect(page.locator('tr:has-text("HTC One M9")')).toContainText("HTC One M9");
-   
-    await expect(page.locator('tr:has-text("Samsung galaxy s6")')).toContainText("Samsung galaxy s6");
     
+    await expect(page.locator('tr:has-text("Samsung galaxy s6")')).toContainText("Samsung galaxy s6");    
+
     var productcart = new ProductCartPage(page);
 
     page.setDefaultTimeout(5000);
