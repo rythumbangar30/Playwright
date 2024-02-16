@@ -15,7 +15,7 @@ exports.DownloadDemo = class DownloadDemo{
         await this.textbox.fill(text);
     }
     async downloadTextFile(){
-        const downloadPromise = await this.page.waitForEvent('download');
+        const downloadPromise = this.page.waitForEvent('download');
         await this.downloadFile.click();
         const download = await downloadPromise;
         await download.saveAs('photos//info.pdf'+download.suggestedFilename());
