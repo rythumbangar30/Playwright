@@ -131,73 +131,73 @@ import { link } from 'fs';
 // config = { timeout: 60000 }
 // OVERRIDE
 
-test('Shopping site',async({page})=>{
-    test.setTimeout(120000);
-    await page.goto("https://magento.softwaretestingboard.com/");
-    await page.locator('#ui-id-4').hover();
-    await page.locator('#ui-id-9').hover();
-    await page.locator('#ui-id-11').click();
-    await page.getByText('Adrienne Trek Jacket').click();
-    await page.locator('#option-label-size-143-item-167').click();
-    await page.locator('#option-label-color-93-item-57').click();
-    await page.locator('#qty').fill('3');
-    await page.getByRole('button',{name:'Add to Cart'}).click();
-    await page.waitForTimeout(5000);
-    await page.getByRole('link',{name:'My Cart'}).click();
-    // await page.getByRole('link',{name:'View and Edit Cart'}).click();  
-    await page.locator('#top-cart-btn-checkout').click();
-    await page.waitForTimeout(8000);
+// test('Shopping site',async({page})=>{
+//     test.setTimeout(120000);
+//     await page.goto("https://magento.softwaretestingboard.com/");
+//     await page.locator('#ui-id-4').hover();
+//     await page.locator('#ui-id-9').hover();
+//     await page.locator('#ui-id-11').click();
+//     await page.getByText('Adrienne Trek Jacket').click();
+//     await page.locator('#option-label-size-143-item-167').click();
+//     await page.locator('#option-label-color-93-item-57').click();
+//     await page.locator('#qty').fill('3');
+//     await page.getByRole('button',{name:'Add to Cart'}).click();
+//     await page.waitForTimeout(5000);
+//     await page.getByRole('link',{name:'My Cart'}).click();
+//     // await page.getByRole('link',{name:'View and Edit Cart'}).click();  
+//     await page.locator('#top-cart-btn-checkout').click();
+//     await page.waitForTimeout(8000);
    
 
-    await page.locator('input[name="firstname"]').fill("gycdhfcvb");
-    const checkFirstName=await page.locator('input[name="firstname"]').inputValue();
-    await expect(checkFirstName).toContain('gycdhfcvb');//checking the value is correct
+//     await page.locator('input[name="firstname"]').fill("gycdhfcvb");
+//     const checkFirstName=await page.locator('input[name="firstname"]').inputValue();
+//     await expect(checkFirstName).toContain('gycdhfcvb');//checking the value is correct
     
-    await page.locator('input[name="lastname"]').fill("bremabndj");
-    const checkLastName=await page.locator('input[name="lastname"]').inputValue();
-    await expect(checkLastName).toContain('bremabndj');//checking the value is correct
+//     await page.locator('input[name="lastname"]').fill("bremabndj");
+//     const checkLastName=await page.locator('input[name="lastname"]').inputValue();
+//     await expect(checkLastName).toContain('bremabndj');//checking the value is correct
     
-    await page.locator('input[name="company"]').fill("lise");
-    const checkCompanyName=await page.locator('input[name="company"]').inputValue();
-    await expect(checkCompanyName).toContain('lise');//checking the value is correct
+//     await page.locator('input[name="company"]').fill("lise");
+//     const checkCompanyName=await page.locator('input[name="company"]').inputValue();
+//     await expect(checkCompanyName).toContain('lise');//checking the value is correct
     
-    await page.locator('input[name="street[0]"]').fill("208,Smpat Hills");
-    const checkAddress=await page.locator('input[name="street[0]"]').inputValue();
-    await expect(checkAddress).toContain('208,Smpat Hills');//checking the value is correct
+//     await page.locator('input[name="street[0]"]').fill("208,Smpat Hills");
+//     const checkAddress=await page.locator('input[name="street[0]"]').inputValue();
+//     await expect(checkAddress).toContain('208,Smpat Hills');//checking the value is correct
 
-    await page.locator('input[name="city"]').fill("Phuket");
-    const checkCity=await page.locator('input[name="city"]').inputValue();
-    await expect(checkCity).toContain('Phuket');//checking the value is correct
+//     await page.locator('input[name="city"]').fill("Phuket");
+//     const checkCity=await page.locator('input[name="city"]').inputValue();
+//     await expect(checkCity).toContain('Phuket');//checking the value is correct
 
-    await page.selectOption('select[name="country_id"]',{
-        label:'India'
-    })
+//     await page.selectOption('select[name="country_id"]',{
+//         label:'India'
+//     })
 
-    await page.selectOption('select[name="region_id"]',{
-        label:'Madhya Pradesh'
-    })
+//     await page.selectOption('select[name="region_id"]',{
+//         label:'Madhya Pradesh'
+//     })
 
-    await page.locator('input[name="postcode"]').fill('905367');
-    const checkPostCode=await page.locator('input[name="postcode"]').inputValue();
-    await expect(checkPostCode).toContain('905367');//checking the value is correct
+//     await page.locator('input[name="postcode"]').fill('905367');
+//     const checkPostCode=await page.locator('input[name="postcode"]').inputValue();
+//     await expect(checkPostCode).toContain('905367');//checking the value is correct
     
-    await page.locator('input[name="telephone"]').fill("5462318846");
-    const checkNumber=await page.locator('input[name="telephone"]').inputValue();
-    await expect(checkNumber).toContain('5462318846');//checking the value is correct
+//     await page.locator('input[name="telephone"]').fill("5462318846");
+//     const checkNumber=await page.locator('input[name="telephone"]').inputValue();
+//     await expect(checkNumber).toContain('5462318846');//checking the value is correct
     
-    await page.locator('input[name="ko_unique_2"]').check();
+//     await page.locator('input[name="ko_unique_2"]').check();
     
-    await page.getByRole('textbox', { name: 'Email Address *' }).fill("dbfh34@gmail.com");
-    const checkEmail=await page.getByRole('textbox', { name: 'Email Address *' }).inputValue();
-    await expect(checkEmail).toContain('dbfh34@gmail.com');//checking the value is correct
-    var imp = await page.locator('strong[class="product-item-name"]').getAttribute("value");
-    console.log(imp);
-    // await expect(page.locator('strong[class="product-item-name"]').getAttribute('value')).toContain("Adrienne Trek Jacket");
-    await page.getByText('Next').click();
-    await page.getByRole('checkbox',{name:"My billing and shipping address are the same"}).check();
-    await page.getByRole('button',{name:'Place Order'}).click();
-    await page.waitForTimeout(8000);
-})
+//     await page.getByRole('textbox', { name: 'Email Address *' }).fill("dbfh34@gmail.com");
+//     const checkEmail=await page.getByRole('textbox', { name: 'Email Address *' }).inputValue();
+//     await expect(checkEmail).toContain('dbfh34@gmail.com');//checking the value is correct
+//     var imp = await page.locator('strong[class="product-item-name"]').getAttribute("value");
+//     console.log(imp);
+//     // await expect(page.locator('strong[class="product-item-name"]').getAttribute('value')).toContain("Adrienne Trek Jacket");
+//     await page.getByText('Next').click();
+//     await page.getByRole('checkbox',{name:"My billing and shipping address are the same"}).check();
+//     await page.getByRole('button',{name:'Place Order'}).click();
+//     await page.waitForTimeout(8000);
+// })
 
 // test("Demo QA",async({page})=>{
 //     test.setTimeout('60000');
@@ -280,8 +280,11 @@ test('Shopping site',async({page})=>{
 //     await newPage.locator('input[placeholder="Add new todo"]').fill("Steriods Added");
 //     // await newPage.locator('input[placeholder="Add new todo"]').click();
 //     await newPage.keyboard.press('Enter');
-//     await newPage.getByText(' Go to potion class').hover();
-//     // await newPage.locator('Go to potion class i.fa fa-trash').click();
+//     var test= await newPage.getByText(' Go to potion class');
+//        await test.hover();
+//        var testdelete = test.locator("i[class='fa fa-trash']");
+//        await testdelete.click();
+//    // await newPage.locator('Go to potion class i.fa fa-trash').click();
 //     // await newPage.keyboard.press('Enter');
 //     // await newPage.getByRole('listitem').filter({hasText:' Go to potion class i.fa fa-trash'}).click();
 //     // await newPage.locator('i').hover();
@@ -357,14 +360,96 @@ test('Shopping site',async({page})=>{
 // })
 
 // test('Alert Box',async({page})=>{
-//     await page.goto("https://demo.automationtesting.in/Alerts.html");
+//     await page.goto("https://webdriveruniversity.com/Popup-Alerts/index.html");
 //     // await page.getByRole('button',{name:"click the button to display an  alert box:"}).click();
-//     await page.locator("button[class='btn btn-danger']").click();
+//     await page.locator('div[class="section-title"]').locator('#button1').click();
+//     await page.locator('div[class="section-title"]').locator('#button2').click();
+//     await page.getByRole('button',{name:'Close'}).click();
+//     await page.locator('div[class="section-title"]').locator('#button3').click();
+//     await page.setDefaultTimeout(10000);
+//     await page.locator('#button1').click();
+//     await page.locator('div[class="modal-footer"]').getByRole('button',{nam:'Close'}).click();
+//     await page.goBack();
+//     // await page.locator("button[class='btn btn-danger']").click();
 //     // await page.getByText("OK").nth(0).click();
 
-//     await page.goto('https://demoqa.com/alerts');
-//     await page.locator('button[id="alertButton"]').click();
+//     // await page.goto('https://demoqa.com/alerts');
+//     // await page.locator('button[id="alertButton"]').click();
 //     await page.waitForTimeout(10000);
 
 // })
+
+// test('Multiple Box',async({page})=>{
+//     await page.goto("https://webdriveruniversity.com/Dropdown-Checkboxes-RadioButtons/index.html");
+//     // await page.locator('div[id="checkboxes"].input[value="option-1"]').check();
+//    // await page.locator('section-title.checkbox').check();
+//     // var test = await page.locator('div[id="checkboxes"]');
+//     // await test.locator('input[value="option-1"]').check();
+//     await page.selectOption('#dropdowm-menu-1',{label:'C#'});
+//     await page.selectOption('#dropdowm-menu-2',{label:'TestNG'});
+//     await page.selectOption('#dropdowm-menu-3',{label:'JQuery'});
+
+//     await page.locator("#checkboxes").locator("input[value='option-1']").click();
+//     await page.locator("#checkboxes").locator("input[value='option-2']").click();
+
+//     await page.locator('#radio-buttons').locator('input[value="green"]').click();
+//     await page.locator('#radio-buttons').locator('input[value="blue"]').click();
+//     await page.locator('#radio-buttons').locator('input[value="yellow"]').click();
+//     await page.locator('#radio-buttons').locator('input[value="orange"]').click();
+//     await page.locator('#radio-buttons').locator('input[value="purple"]').click();
+
+//     await page.locator('#radio-buttons-selected-disabled').locator('input[value="lettuce"]').click();
+//     await page.selectOption('#fruit-selects',{label:'Grape'});
+
+//     // .locator('#section-title').nth(2)
+//     await page.waitForTimeout(5000);
+// })
+
+test('Accessing Table Content ',async({page})=>{
+    await page.goto('https://webdriveruniversity.com/Data-Table/index.html');
+    var smith=await page.getByRole('link',{name:'Smith'}).isVisible();
+    var john = await page.getByRole('link',{name:'John'}).isVisible();
+    // const line = await page.locator('table[id="t01"] tbody').locator('tr').nth(0).allInnerTexts();
+    // console.log(line);
+    // await expect(smith).toBe(john);
+    // const tr = await page.locator('tbody.ui-datatable-data.ui-widget-content > tr.ui-datatable-selectable').all();
+    // const tr =await page.locator('#t01').locator('tbody.ui-datatable-data.ui-widget-content > tr.ui-datatable-selectable').();
+    const tr = await page.locator('#t01 tbody tr').allInnerTexts();
+    
+    // const tr = await page.locator('#t01 tbody').locator('tr').count();
+    console.log(tr);
+    //     const outData = [];
+    //     for (let i of tr) {
+    //         const currentRow = i.getByRole('Smith').nth(2);
+    //         const currentName = await currentRow.innerText();
+    //         await i.getByRole('Smith').nth(1).click();
+    //         console.log(outData);
+    //         await page.waitForTimeout(2000);
+    //     }
+    
+    const textsFromNthColumn = [];    
+    const rowCount = await page.locator('#t01 tbody tr').count();
+    console.log(rowCount);
+    for (let i = 0; i < rowCount; i++) {
+        if(i==0){
+        textsFromNthColumn.push(await page.locator('#t01 tbody tr').nth(i).locator('th').allInnerTexts());            
+        }
+        else{
+        // textsFromNthColumn.push(await page.locator('#t01 tbody tr').nth(i).locator('td').nth(n).allInnerTexts());  //If want to print an column
+        textsFromNthColumn.push(await page.locator('#t01 tbody tr').nth(i).locator('td').allInnerTexts());
+        }
+    }  //change n with your column number
+    console.log(textsFromNthColumn);
+    for(let i=0 ; i<rowCount ; i++){
+       for(let j=0 ; j<3 ; j++){
+           if(textsFromNthColumn[i][j].match("Smith")){
+             let c=j-1;
+            console.log(textsFromNthColumn[i][c]);
+
+           }else if(textsFromNthColumn[i][j].match('94')){
+            console.log(textsFromNthColumn[i][j]);
+           }
+       } 
+    }
+})
 

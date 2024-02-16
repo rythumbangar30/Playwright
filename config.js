@@ -13,5 +13,6 @@ module.exports={
   lastname:faker.person.lastName(),
   email:faker.internet.email(),
   password:faker.internet.password(),
-  text:faker.word.noun()
+  text:faker.word.noun(),
+  paragraph:faker.internet.exampleEmail()
 };
