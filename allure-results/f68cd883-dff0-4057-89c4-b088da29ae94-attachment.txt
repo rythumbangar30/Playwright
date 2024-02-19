@@ -1,0 +1,12 @@
+[
+  'Firstname\tLastname\tAge',
+  'John\tSmith\t45',
+  'Jemma\tJackson\t94',
+  'Michael\tDoe\t20'
+]
+John
+Jemma
+Michael
+Jason
+Sarah
+Bob

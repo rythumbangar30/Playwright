@@ -412,25 +412,35 @@ test('Accessing Table Content ',async({page})=>{
     // const line = await page.locator('table[id="t01"] tbody').locator('tr').nth(0).allInnerTexts();
     // console.log(line);
     // await expect(smith).toBe(john);
-    // const tr = await page.locator('tbody.ui-datatable-data.ui-widget-content > tr.ui-datatable-selectable').all();
-    // const tr =await page.locator('#t01').locator('tbody.ui-datatable-data.ui-widget-content > tr.ui-datatable-selectable').();
+    
     const tr = await page.locator('#t01 tbody tr').allInnerTexts();
+    console.log(tr);   //Printing text in the terminal
+
+    // const sim = await page.locator('#t01 tbody tr:has-text("Smith")').locator('td:first-child').innerText();
+    // console.log(sim);
+
+    const l = await page.locator('#t01 tbody tr:has-text("Smith")').locator('td>>nth=2').innerText();
+    console.log(l);
+
+    const m = await page.locator('#t01 tbody tr:has-text("Jackson")').locator('td>>nth=0').innerText();
+    console.log(m);
+
+    const n = await page.locator('#t01 tbody tr:has-text("Doe")').locator('td>>nth=0').innerText();
+    console.log(n);
+
+    var o = await page.locator('#t02 tbody tr:has-text("Jones")').locator('td>>nth=0').innerText();
+    console.log(o);
+
+    var o = await page.locator('#t02 tbody tr:has-text("Jackson")').locator('td>>nth=0').innerText();
+    console.log(o);
     
-    // const tr = await page.locator('#t01 tbody').locator('tr').count();
-    console.log(tr);
-    //     const outData = [];
-    //     for (let i of tr) {
-    //         const currentRow = i.getByRole('Smith').nth(2);
-    //         const currentName = await currentRow.innerText();
-    //         await i.getByRole('Smith').nth(1).click();
-    //         console.log(outData);
-    //         await page.waitForTimeout(2000);
-    //     }
-    
+    var o = await page.locator('#t02 tbody tr:has-text("Woods")').locator('td>>nth=0').innerText();
+    console.log(o);
+
     const textsFromNthColumn = [];    
     const rowCount = await page.locator('#t01 tbody tr').count();
-    console.log(rowCount);
-    for (let i = 0; i < rowCount; i++) {
+    for (let i = 0; i < rowCount; i++) //To push table data into an array
+    {
         if(i==0){
         textsFromNthColumn.push(await page.locator('#t01 tbody tr').nth(i).locator('th').allInnerTexts());            
         }
@@ -451,5 +461,12 @@ test('Accessing Table Content ',async({page})=>{
            }
        } 
     }
+
+
+    var a = await page.locator('table[class="table table-light traversal-table"] tbody tr').locator("th>>nth=0").innerText();
+    console.log(a);
+
+    var a = await page.locator('table[class="table table-light traversal-table"] tbody tr:has-text("Jones")').locator("td>>nth=0").innerText();
+    console.log(a);
 })
 
